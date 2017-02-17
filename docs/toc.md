@@ -168,6 +168,7 @@
 ### [global.json](core/tools/global-json.md)
 ## [.NET Core Tools RC4](core/preview3/tools/index.md)
 ### [Changes in CLI overview](core/preview3/tools/layering.md)
+### [Migrating from project.json](core/preview3/migration/index.md)
 ### [Dependency management](core/preview3/tools/dependencies.md)
 ### [Deploying applications](core/preview3/deploying/index.md)
 ### [Additions to the csproj format](core/preview3/tools/csproj.md)
