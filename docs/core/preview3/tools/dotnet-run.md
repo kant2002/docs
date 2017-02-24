@@ -25,9 +25,7 @@ dotnet-run -- Runs source code 'in-place' without any explicit compile or launch
 ## Synopsis
 
 ```
-dotnet run <project>
-dotnet run [-f|--framework] [-c|--configuration]
-dotnet run [[--] [application arguments]]
+dotnet run <project> [-f|--framework] [-c|--configuration] [[--] [application arguments]]
 dotnet run [-h|--help]
 ```
 
