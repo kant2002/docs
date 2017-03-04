@@ -4,7 +4,7 @@ description: The dotnet-run command provides a convenient option to run your app
 keywords: dotnet-run, CLI, CLI command, .NET Core
 author: blackdwarf
 ms.author: mairaw
-ms.date: 10/07/2016
+ms.date: 03/04/2016
 ms.topic: article
 ms.prod: .net-core
 ms.technology: dotnet-cli
@@ -20,7 +20,7 @@ ms.assetid: 40d4e60f-9900-4a48-b03c-0bae06792d91
 
 ## Name 
 
-dotnet-run -- Runs source code 'in-place' without any explicit compile or launch commands.
+`dotnet-run` - Runs source code 'in-place' without any explicit compile or launch commands.
 
 ## Synopsis
 
@@ -32,7 +32,7 @@ dotnet run [-h|--help]
 ## Description
 The `dotnet run` command provides a convenient option to run your application from the source code with one command. It is useful for fast iterative development in the command line. The command depends on [`dotnet build`](dotnet-build.md) command to build the code, so any requirements for the build, such as that the project has to be restored first, apply to `dotnet run` as well. 
 
-Output files are written out into the default location which is `bin/<configuration>/<target>`. For example, if you have a `netcoreapp1.0` application and you run `dotnet run`, the output will be placed in `bin/Debug/netcoreapp1.0`. Files are owverwritten as needed. Temporary files are placed in the `obj` directory. 
+Output files are written out into the default location which is `bin/<configuration>/<target>`. For example, if you have a `netcoreapp1.0` application and you run `dotnet run`, the output will be placed in `bin/Debug/netcoreapp1.0`. Files are overwritten as needed. Temporary files are placed in the `obj` directory. 
 
 In case of a project with multiple specified frameworks, `dotnet run` will show an error unless `--framework` option is used to specify for which framework to run the application.
 
@@ -42,7 +42,7 @@ The `dotnet run` command must be used in the context of projects, not built asse
 
 For more information about the `dotnet` driver, see the [.NET Core Command Line Tools (CLI)](index.md) topic.
 
-In order to run the application, the `dotnet run` command resolved the dependencies of the application that are outside of the shared runtime from the NuGet cache. Given this, it is not reccomended to use this command to run applications in production. Instead, you should [create a deployment](../deploying/index.md) using [`dotnet publish`](dotnet-publish.md) command and use that in production. 
+In order to run the application, the `dotnet run` command resolves the dependencies of the application that are outside of the shared runtime from the NuGet cache. Given this, it is not recommended to use this command to run applications in production. Instead, you should [create a deployment](../deploying/index.md) using [`dotnet publish`](dotnet-publish.md) command and use that in production. 
 
 ## Options
 
@@ -55,15 +55,15 @@ All arguments after this one will be passed to the application being run.
 
 Prints out a short help for the command.
 
-`-f`, `--framework <FRAMEWORK_IDENTIFIER>`
+`-f|--framework <FRAMEWORK_IDENTIFIER>`
 
-Runs the application for a given framework identifier (FID). 
+Builds and runs the application for the specified framework. The framework has to be specified in the project file.
 
-`-c`, `--configuration <Debug|Release>`
+`-c|--configuration <Debug|Release>`
 
 Configuration to use when publishing. The default value is `Debug`.
 
-`-p`, `--project [PATH]`
+`-p|--project [PATH]`
 
 Specifies which project to run. 
 It can be a path to a [csproj](csproj.md) file or to a directory containing a [csproj](csproj.md) file. It defaults to
