@@ -4,7 +4,7 @@ description: The dotnet-new command creates new .NET Core projects in the curren
 keywords: dotnet-new, CLI, CLI command, .NET Core
 author: blackdwarf
 ms.author: mairaw
-ms.date: 02/15/2017
+ms.date: 03/04/2017
 ms.topic: article
 ms.prod: .net-core
 ms.technology: dotnet-cli
@@ -14,12 +14,12 @@ ms.assetid: fcc3ed2e-9265-4d50-b59e-dc2e5c190b34
 #dotnet-new
 
 ## Name
-`dotnet-new` - Creates a new .NET Core project in the current directory.
+`dotnet-new` - Creates a new project or solution in the current directory based on the specified template.
 
 ## Synopsis
 ```
-dotnet new [template] [-lang|--language] [-n|--name] [-o|--output] [-h|--help]
-dotnet new [template] [-l|--list]
+dotnet new <template> [-lang|--language] [-n|--name] [-o|--output] [-all|--show-all] [-h|--help] 
+dotnet new <template> [-l|--list]
 dotnet new [-all|--show-all]
 dotnet new [-h|--help]
 ```
@@ -32,35 +32,57 @@ This command is invoked in the context of a directory. When invoked, the command
 After this, the project is ready to be compiled and/or edited further. 
 
 ## Arguments
-template - The template to instantiate when the command is invoked.
 
-The command contains a default list of templates; use `dotnet new --help`. 
+`<template>`
+
+The template to instantiate when the command is invoked.
+
+The command contains a default list of templates. Use `dotnet new -all` to see them.
+
+The following table shows the templates that come pre-installed with the SDK. The default language for the template is shown inside brackets such as `[C#]`.
+
+|Template description  | Template name  | Languages |
+|----------------------|----------------|-----------|
+| Console application  | console        | [C#], F#  |
+| Class library        | classlib       | [C#], F#  |
+| Unit test project    | mstest         | [C#], F#  |
+| xUnit Test Project   | xunit          | [C#], F#  |
+| ASP.NET Core Empty   | web            | [C#]      |
+| ASP.NET Core Web App | mvc            | [C#], F#  |
+| ASP.NET Core Web Api | webapi         | [C#]      |
+| Nuget config         | nugetconfig    |           |
+| Web config           | webconfig      |           |
+| Solution file        | sln    |           |
 
 ## Options
 
-`-l|--list`         
+`-h|--help`
 
-List templates containing the specified name.
+Prints out help for the command. It can be invoked for the `dotnet new` command itself or for any template, such as `dotnet new mvc --help`.
 
-`-lang|--language`  
+`-l|--list`
 
-Specifies the language of the template to create
+Lists templates containing the specified name. If invoked for the `dotnet new` command itself, it lists the possible templates to be used on the given directory.
+For example, if the directory already contains a project, it won't list all project templates.
 
-`-n|--name`         
+`-lang|--language <C#|F#>`
+
+The language of the template to create. Language accepted varies by template (see defaults in the [arguments](#arguments) section. 
+Not valid for some templates.
+
+`-n|--name <OUTPUT_NAME>`
 
 The name for the output being created. If no name is specified, the name of the current directory is used.
 
-`-o|--output`       
+`-o|--output <OUTPUT_DIRECTORY>`
 
 Location to place the generated output.
 
-`-all|--show-all`   
+`-all|--show-all`
 
-Shows all templates for a specific type of project.
-
-`-h|--help`
-
-Prints out help for the command.
+Shows all templates for a specific type of project when running in the context of the `dotnet new` command alone. 
+When running in the context of a specific template, such as, `dotnet new web -all`, `-all` is interpreted as a force creation flag. 
+That might happen when the current directory already contains a project.
 
 ## Template options
 Each project template may have additional options available. The core templates, for example, have the following.
