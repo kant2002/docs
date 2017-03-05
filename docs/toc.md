@@ -138,7 +138,7 @@
 ### [How to Manage Package Dependency Versions for .NET Core 1.0](core/tutorials/managing-package-dependency-versions.md)
 ### [Using MSBuild to build .NET Core projects](core/tutorials/target-dotnetcore-with-msbuild.md)
 ## [Packages, Metapackages and Frameworks](core/packages.md)
-## [Migration]
+## Migration
 ### [Migrating from project.json](core/migration/index.md)
 ### [Migrating from DNX](core/migrating-from-dnx.md)
 ## [Application Deployment](core/deploying/index.md)
